@@ -3,6 +3,10 @@ import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
 import { ContactFilter } from 'components/ContactFilter/ContactFilter';
 
+import { GlobalStyle } from 'components/GlobalStyle';
+import { Layout } from 'components/Layout';
+import { MainTitle, Title } from './App.styled';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -52,17 +56,19 @@ export class App extends Component {
   render() {
     const visibleContacts = this.getFilteredContacts();
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Layout>
+        <MainTitle>Phonebook</MainTitle>
         <ContactForm onFormSubmit={this.handleFormSubmit} />
 
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
         <ContactFilter onFilterNameChange={this.changeNameFilter} />
         <ContactList
           contacts={visibleContacts}
           onContactsDelete={this.deleteContacts}
         />
-      </div>
+
+        <GlobalStyle />
+      </Layout>
     );
   }
 }
