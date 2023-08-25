@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
 import { ContactFilter } from 'components/ContactFilter/ContactFilter';
@@ -25,7 +26,8 @@ export class App extends Component {
       alert(`${newContact.name} is already in contacts`);
     } else {
       this.setState(prevState => {
-        return { contacts: [...prevState.contacts, newContact] };
+        const id = nanoid();
+        return { contacts: [...prevState.contacts, { id, ...newContact }] };
       });
     }
   };

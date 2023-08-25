@@ -10,7 +10,7 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   position: relative;
-  min-width: 240px;
+  min-width: 260px;
   padding: ${p => p.theme.spacing(3)};
   display: flex;
   flex-direction: column;

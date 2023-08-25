@@ -1,6 +1,5 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { regex } from 'utils/regex';
 
@@ -18,16 +17,14 @@ import {
 const Schema = yup.object().shape({
   name: yup
     .string()
-    .min(2, 'Too Short')
-    .max(20, 'Too Long')
-    .trim()
+    .min(3, 'Enter at least 3 characters')
+    .max(25, 'Too Long')
     .matches(regex.name.regex, regex.name.errorMessage)
     .required('Required'),
   number: yup
     .string()
     .min(6, 'Enter at least 6 characters')
     .max(20, 'Too Long')
-    .trim()
     .matches(regex.number.regex, regex.number.errorMessage)
     .required('Required'),
 });
@@ -39,8 +36,7 @@ const initialValues = {
 
 export const ContactForm = ({ onFormSubmit }) => {
   const handleSubmit = (values, { resetForm }) => {
-    const id = nanoid();
-    onFormSubmit({ ...values, id });
+    onFormSubmit(values);
     resetForm();
   };
 

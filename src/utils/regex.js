@@ -2,7 +2,7 @@ export const regex = {
   name: {
     regex: /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
     errorMessage:
-      'Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer',
+      "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan",
   },
   number: {
     regex:
