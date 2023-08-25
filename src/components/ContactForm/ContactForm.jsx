@@ -19,12 +19,14 @@ const Schema = yup.object().shape({
     .string()
     .min(3, 'Enter at least 3 characters')
     .max(25, 'Too Long')
+    .trim()
     .matches(regex.name.regex, regex.name.errorMessage)
     .required('Required'),
   number: yup
     .string()
     .min(6, 'Enter at least 6 characters')
     .max(20, 'Too Long')
+    .trim()
     .matches(regex.number.regex, regex.number.errorMessage)
     .required('Required'),
 });

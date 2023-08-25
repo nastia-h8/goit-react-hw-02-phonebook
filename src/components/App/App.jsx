@@ -25,10 +25,9 @@ export class App extends Component {
     if (hasContact) {
       alert(`${newContact.name} is already in contacts`);
     } else {
-      this.setState(prevState => {
-        const id = nanoid();
-        return { contacts: [...prevState.contacts, { id, ...newContact }] };
-      });
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, { id: nanoid(), ...newContact }],
+      }));
     }
   };
 
