@@ -34,7 +34,8 @@ export class App extends Component {
 
   checkContacts = newContact => {
     return this.state.contacts.some(
-      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+      contact =>
+        contact.name.toLowerCase() === newContact.name.trim().toLowerCase()
     );
   };
 
